@@ -1,17 +1,12 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class AutoRotate : MonoBehaviour
 {
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   float turnSpeed = 20.0f;
 
-  private InputActionAsset inputActions;
-  private InputAction mouseClickAction;
-
-  void OnEnable()
-  {
-    inputActions.FindActionMap("UI").Enable();
-  }
+  public InputActionAsset inputActions;
+  public InputAction mouseClickAction;
 
   void Start()
   {

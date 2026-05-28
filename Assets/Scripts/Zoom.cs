@@ -3,23 +3,16 @@ using UnityEngine.InputSystem;
 public class Zoom : MonoBehaviour
 {
   // Start is called once before the first execution of Update after the MonoBehaviour is created
-  float zoomSpeed = 10.0f;
-  public float minZoom = 5.0f;
-  public float maxZoom = 20.0f;
+  float zoomSpeed = 200.0f;
+  public float minFOV = 20f;
+  public float maxFOV = 90f;
   public InputActionAsset inputActions;
   public InputAction scrollAction;
 
-  void OnEnable()
-  {
-    inputActions.FindActionMap("UI").Enable();
-  }
-
-  void OnDisable()
-  {
-    inputActions.FindActionMap("UI").Disable();
-  }
+  Camera cam;
   void Start()
   {
+    cam = GetComponent<Camera>();
     scrollAction = InputSystem.actions.FindAction("UI/ScrollWheel");
   }
 
@@ -31,12 +24,8 @@ public class Zoom : MonoBehaviour
     {
       Debug.Log("Scroll value: " + scroll);
     }
-    Vector3 pos = transform.position;
 
-    pos.z += -scroll.y * zoomSpeed * Time.deltaTime;
-
-    pos.z = Mathf.Clamp(pos.z, minZoom, maxZoom);
-
-    transform.position = pos;
+    cam.fieldOfView -= scroll.y * zoomSpeed * Time.deltaTime;
+    cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minFOV, maxFOV);
   }
 }
