@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 public class AutoRotate : MonoBehaviour
 {
   // Start is called once before the first execution of Update after the MonoBehaviour is created
-  float turnSpeed = 20.0f;
+  [SerializeField] float turnSpeed = 20.0f;
 
   public InputActionAsset inputActions;
   public InputAction mouseClickAction;
