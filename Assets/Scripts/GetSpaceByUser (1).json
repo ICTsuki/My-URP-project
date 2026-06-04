@@ -1,0 +1,86 @@
+﻿{
+    "spaceViews": [
+        {
+            "label": "Flycam 1 - Sân Tây",
+            "src": "https://erps3.yoolife.vn/studio/vr-1ygEcBZWt6lJYFORKu",
+            "hotpots": [
+                {
+                    "scale": "[8,8,20]",
+                    "rotation": "[0,-1.5707963267948966,0]",
+                    "spaceId": 17387,
+                    "label": "Nhà A.2",
+                    "coordinates": "[-259.00000000000006,-2.7223335475527763,-170.04910336079558]",
+                    "transferSpaceId": 17389,
+                    "type": 2,
+                    "id": 25550
+                },
+                {
+                    "scale": "[20,20,20]",
+                    "rotation": "[0,-1.5707963267948966,0]",
+                    "spaceId": 17387,
+                    "label": "Sân Nam",
+                    "coordinates": "[-243.88118593474184,-56.564601663148096,-262.7268437105752]",
+                    "transferSpaceId": 17388,
+                    "type": 2,
+                    "id": 25557
+                }
+            ],
+            "id": 17387
+        },
+        {
+            "label": "Flycam 2 - Sân Nam",
+            "src": "https://erps3.yoolife.vn/studio/vr-1ygEcBZWt6lJYFORKu",
+            "hotpots": [
+                {
+                    "scale": "[8,8,20]",
+                    "rotation": "[0,-1.5707963267948966,0]",
+                    "spaceId": 17387,
+                    "label": "Nhà A.2",
+                    "coordinates": "[-259.00000000000006,-2.7223335475527763,-170.04910336079558]",
+                    "transferSpaceId": 17389,
+                    "type": 2,
+                    "id": 25550
+                },
+                {
+                    "scale": "[10,10,20]",
+                    "rotation": "[0,0,0]",
+                    "spaceId": 17387,
+                    "label": "Sân Tây",
+                    "coordinates": "[-118.84812533471907,5.677461727857306,-259.7298545392647]",
+                    "transferSpaceId": 17387,
+                    "type": 2,
+                    "id": 25557
+                }
+            ],
+            "id": 17388
+        },
+        {
+            "label": "Flycam 3 - Nhà A.2",
+            "src": "https://erps3.yoolife.vn/studio/vr-1ygEcBZWt6lJYFORKu",
+            "hotpots": [
+                {
+                    "scale": "[10,10,20]",
+                    "rotation": "[0,0,0]",
+                    "spaceId": 17387,
+                    "label": "Sân Tây",
+                    "coordinates": "[-118.84812533471907,5.677461727857306,-259.7298545392647]",
+                    "transferSpaceId": 17387,
+                    "type": 2,
+                    "id": 25557
+                },
+                {
+                    "scale": "[20,20,20]",
+                    "rotation": "[0,-1.5707963267948966,0]",
+                    "spaceId": 17387,
+                    "label": "Sân Nam",
+                    "coordinates": "[-243.88118593474184,-56.564601663148096,-262.7268437105752]",
+                    "transferSpaceId": 17388,
+                    "type": 2,
+                    "id": 25557
+                }
+            ],
+            "id": 17389
+        }
+    ]
+}
+
