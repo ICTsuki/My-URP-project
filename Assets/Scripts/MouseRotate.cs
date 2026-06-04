@@ -24,6 +24,9 @@ public class MouseRotate : MonoBehaviour
   {
     mouseDeltaAction = InputSystem.actions.FindAction("UI/MouseDelta");
     mouseClickAction = InputSystem.actions.FindAction("UI/Click");
+    horizontal = transform.rotation.eulerAngles.y;
+    vertical = transform.rotation.eulerAngles.x;
+    transform.rotation = Quaternion.Euler(vertical, horizontal, 0);
   }
 
   // Update is called once per frame

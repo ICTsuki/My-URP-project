@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 public class Zoom : MonoBehaviour
 {
   // Start is called once before the first execution of Update after the MonoBehaviour is created
-  float zoomSpeed = 200.0f;
+  [SerializeField] private float zoomSpeed = 200.0f;
   public float minFOV = 20f;
   public float maxFOV = 90f;
   public InputActionAsset inputActions;
