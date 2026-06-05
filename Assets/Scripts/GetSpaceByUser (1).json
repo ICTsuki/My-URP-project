@@ -2,7 +2,7 @@
     "spaceViews": [
         {
             "label": "Flycam 1 - Sân Tây",
-            "src": "https://erps3.yoolife.vn/studio/vr-1ygEcBZWt6lJYFORKu",
+            "src": "E:\\UnityProj\\My intern project\\Assets\\Textures\\Sky1",
             "hotpots": [
                 {
                     "scale": "[8,8,20]",
@@ -29,7 +29,7 @@
         },
         {
             "label": "Flycam 2 - Sân Nam",
-            "src": "https://erps3.yoolife.vn/studio/vr-1ygEcBZWt6lJYFORKu",
+            "src": "E:\\UnityProj\\My intern project\\Assets\\Textures\\Sky2",
             "hotpots": [
                 {
                     "scale": "[8,8,20]",
@@ -49,14 +49,14 @@
                     "coordinates": "[-118.84812533471907,5.677461727857306,-259.7298545392647]",
                     "transferSpaceId": 17387,
                     "type": 2,
-                    "id": 25557
+                    "id": 25759
                 }
             ],
             "id": 17388
         },
         {
             "label": "Flycam 3 - Nhà A.2",
-            "src": "https://erps3.yoolife.vn/studio/vr-1ygEcBZWt6lJYFORKu",
+            "src": "E:\\UnityProj\\My intern project\\Assets\\Textures\\Sky3",
             "hotpots": [
                 {
                     "scale": "[10,10,20]",
@@ -66,7 +66,7 @@
                     "coordinates": "[-118.84812533471907,5.677461727857306,-259.7298545392647]",
                     "transferSpaceId": 17387,
                     "type": 2,
-                    "id": 25557
+                    "id": 25759
                 },
                 {
                     "scale": "[20,20,20]",
