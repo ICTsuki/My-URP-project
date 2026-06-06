@@ -4,7 +4,7 @@ using UnityEngine;
 public class Hostpot : MonoBehaviour
 {
   public HotSpotData data;
-  [SerializeField]private Manager manager;
+  public Manager manager;
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
   {
@@ -19,5 +19,13 @@ public class Hostpot : MonoBehaviour
   {
     Material newSkybox = manager.skyboxMaterials[data.transferSpaceId];
     RenderSettings.skybox = newSkybox;
+    this.gameObject.SetActive(false);
+    foreach(int id in manager.hotspotID)
+{
+    if(id != data.id)
+    {
+        manager.hotspotObj[id].SetActive(true);
+    }
+}
   }
 }

@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-
 public class Manager : MonoBehaviour
 {
   public GameObject hotspotPrefab;
@@ -10,8 +9,8 @@ public class Manager : MonoBehaviour
   public TextAsset jsonFile;
   private SpaceViewList myData;
   public Dictionary<int, Material> skyboxMaterials;
-  private Dictionary<int, GameObject> hotspotObj;
-  private HashSet<int> hotspotID;
+  public Dictionary<int, GameObject> hotspotObj;
+  public HashSet<int> hotspotID;
 
   void Awake()
   {
@@ -45,7 +44,9 @@ public class Manager : MonoBehaviour
     {
       for (int i = 0; i < myData.spaceViews.Length; i++)
       {
+        Debug.Log(myData.spaceViews[i].src);
         skyboxMaterials[myData.spaceViews[i].id] = skyboxLoader.Load6SidedSkybox(myData.spaceViews[i].src, i+1);
+        if(skyboxMaterials[myData.spaceViews[i].id] == null) throw new System.NullReferenceException();
       }
     }
   }
@@ -66,6 +67,7 @@ public class Manager : MonoBehaviour
           hotspot.transform.rotation = ParseRotation(myData.spaceViews[i].hotpots[j].rotation);
           hotspotComp.data = myData.spaceViews[i].hotpots[j];
           hotspotObj[hotspotComp.data.id] = hotspot;
+          hotspotComp.manager = this; 
           if(!hotspotID.Contains(hotspotComp.data.id)) hotspotID.Add(hotspotComp.data.id);
         }
       }
