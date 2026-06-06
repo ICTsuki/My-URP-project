@@ -3,43 +3,51 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.IO;
 
-public class Skybox6SidedLoader : MonoBehaviour
+
+public class Skybox6SidedLoader
 {
-    private string[] faceNames = { "Front.jpg", "Back.jpg", "Left.jpg", "Right.jpg", "Up.jpg", "Down.jpg" };
-    private string[] shaderProperties = { "_FrontTex", "_BackTex", "_LeftTex", "_RightTex", "_UpTex", "_DownTex" };
+  private string[] faceNames = { "Front", "Back", "Left", "Right", "Up", "Down" };
+  private string[] shaderProperties = { "_FrontTex", "_BackTex", "_LeftTex", "_RightTex", "_UpTex", "_DownTex" };
+  private Material skyboxMat;
+  private MonoBehaviour runner;
 
-    public void Load6SidedSkybox(string folderName)
-    {
-        StartCoroutine(LoadAllFaces(folderName));
-    }
+  public Skybox6SidedLoader(MonoBehaviour runner)
+  {
+    this.runner = runner;
+  }
 
-    IEnumerator LoadAllFaces(string folderName)
+  public Material Load6SidedSkybox(string folderName, int counter)
+  {
+    skyboxMat = new Material(Shader.Find("Skybox/6 Sided"));
+    runner.StartCoroutine(LoadAllFaces(folderName, counter));
+    return skyboxMat;
+  }
+
+  IEnumerator LoadAllFaces(string folderName, int counter)
+  {
+    
+    string[] faces = new string[6];
+    for (int i = 0; i < faceNames.Length; i++) faces[i] = faceNames[i] + counter.ToString() + ".jpg";
+
+    for (int i = 0; i < 6; i++)
     {
-        // 1. Tạo một Material mới dùng shader 6 mặt
-        Material skyboxMat = new Material(Shader.Find("Skybox/6 Sided"));
-        
-        // 2. Lặp qua 6 mặt để tải từng ảnh
-        for (int i = 0; i < 6; i++)
+      string filePath = Path.Combine(folderName, faces[i]);
+
+      using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(filePath)) // using để tự động giải phóng tài nguyên sau khi xong
+      {
+        yield return uwr.SendWebRequest(); // Chờ cho đến khi tải xong
+
+        if (uwr.result == UnityWebRequest.Result.Success)
         {
-            string filePath = Path.Combine(folderName, faceNames[i]);
-            if (!filePath.Contains("://")) filePath = "file://" + filePath;
+          Texture2D loadedTexture = DownloadHandlerTexture.GetContent(uwr);
+          skyboxMat.SetTexture(shaderProperties[i], loadedTexture);
 
-            using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(filePath)) // using để tự động giải phóng tài nguyên sau khi xong
-            {
-                yield return uwr.SendWebRequest(); // Chờ cho đến khi tải xong
-
-                if (uwr.result == UnityWebRequest.Result.Success)
-                {
-                    Texture2D loadedTexture = DownloadHandlerTexture.GetContent(uwr);
-                    
-                    // 3. Gán ảnh vừa tải vào đúng mặt của Material
-                    skyboxMat.SetTexture(shaderProperties[i], loadedTexture);
-                }
-                else
-                {
-                    Debug.LogError("Lỗi tải mặt " + faceNames[i] + ": " + uwr.error);
-                }
-            }
         }
+        else
+        {
+          Debug.LogError("Error when loading faces " + faces[i] + ": " + uwr.error);
+        }
+      }
     }
+  }
 }
