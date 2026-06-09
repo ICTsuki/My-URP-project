@@ -7,7 +7,7 @@ public class Skybox6SidedLoader
 {
   private string[] faceNames = { "Front", "Back", "Left", "Right", "Up", "Down" };
   private string[] shaderProperties = { "_FrontTex", "_BackTex", "_LeftTex", "_RightTex", "_UpTex", "_DownTex" };
-
+  string dataPath = Application.dataPath;
   private MonoBehaviour runner;
 
   public Skybox6SidedLoader(MonoBehaviour runner)
@@ -32,7 +32,7 @@ public class Skybox6SidedLoader
 
     for (int i = 0; i < 6; i++)
     {
-      string filePath = "file:///" + Path.Combine(folderName, faces[i]).Replace("\\", "/");
+      string filePath = "file:///" + Path.Combine(dataPath, folderName, faces[i]).Replace("\\", "/");
 
       using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(filePath))
       {

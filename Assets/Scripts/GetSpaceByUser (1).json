@@ -2,7 +2,7 @@
     "spaceViews": [
         {
             "label": "Flycam 1 - Sân Tây",
-            "src": "E:\\UnityProj\\My intern project\\Assets\\Textures\\Sky1",
+            "src": "Textures/Sky1",
             "hotpots": [
                 {
                     "scale": "[8,8,20]",
@@ -29,7 +29,7 @@
         },
         {
             "label": "Flycam 2 - Sân Nam",
-            "src": "E:\\UnityProj\\My intern project\\Assets\\Textures\\Sky2",
+            "src": "Textures/Sky2",
             "hotpots": [
                 {
                     "scale": "[8,8,20]",
@@ -56,7 +56,7 @@
         },
         {
             "label": "Flycam 3 - Nhà A.2",
-            "src": "E:\\UnityProj\\My intern project\\Assets\\Textures\\Sky3",
+            "src": "Textures/Sky3",
             "hotpots": [
                 {
                     "scale": "[10,10,20]",
